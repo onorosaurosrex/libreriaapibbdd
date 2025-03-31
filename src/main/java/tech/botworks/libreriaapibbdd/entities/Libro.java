@@ -1,0 +1,40 @@
+package tech.botworks.libreriaapibbdd.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table (name="libros")
+public class Libro {
+
+  @Id
+  @Column(name = "id_libro", columnDefinition = "BIGINT", nullable = false)
+  private long idLibro; 
+
+  private int ejemplares;
+
+  @Column (name="libro_activo", columnDefinition = "BIT(1)")
+  private Boolean libroActivo;
+
+  @Column(columnDefinition = "VARCHAR(255)", length = 255, nullable = false)
+  private String titulo;
+
+  @OneToMany
+  @JoinColumn (name= "id_autor")
+  private Autor idAutor;
+
+  @OneToMany
+  @JoinColumn(name = "id_editorial")
+  private Autor idEditorial;
+
+}
