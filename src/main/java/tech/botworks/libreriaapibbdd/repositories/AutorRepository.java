@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import tech.botworks.libreriaapibbdd.entities.Autor;
 
 @Repository
-public interface AutorRepository extends JpaRepository<Autor, String> {
-
+public interface AutorRepository extends JpaRepository<Autor, String>{
+  
 }
