@@ -35,6 +35,6 @@ public class Libro {
 
   @OneToMany
   @JoinColumn(name = "id_editorial")
-  private Autor idEditorial;
+  private Editorial idEditorial;
 
 }
