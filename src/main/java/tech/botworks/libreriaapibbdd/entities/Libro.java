@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -29,11 +30,11 @@ public class Libro {
   @Column(columnDefinition = "VARCHAR(255)", length = 255, nullable = false)
   private String titulo;
 
-  @OneToMany
+  @ManyToOne
   @JoinColumn (name= "id_autor")
   private Autor idAutor;
 
-  @OneToMany
+  @ManyToOne
   @JoinColumn(name = "id_editorial")
   private Editorial idEditorial;
 
