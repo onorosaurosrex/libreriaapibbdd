@@ -19,7 +19,7 @@ public class Libro {
 
   @Id
   @Column(name = "id_libro", columnDefinition = "BIGINT", nullable = false)
-  private long idLibro; 
+  private Long idLibro; 
 
   private int ejemplares;
 
