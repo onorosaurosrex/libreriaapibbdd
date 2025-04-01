@@ -20,7 +20,7 @@ public class Autor {
   private String idAutor;
 
   @Column(name="autor_activo", columnDefinition = "BIT(1)")
-  private boolean autorActivo = true;
+  private Boolean autorActivo = true;
 
   @Column(name = "nombre_autor", columnDefinition = "VARCHAR(255)", length = 255, nullable = false)
   private String nombreAutor;

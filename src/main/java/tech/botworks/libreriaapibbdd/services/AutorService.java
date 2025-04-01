@@ -22,7 +22,7 @@ public class AutorService {
   }
   //MODIFICAR
   public void modificarAutor (String idAutor, String nombreAutor, Boolean estado) {
-    Autor autor = autorRepository.findById(idAutor).get();
+    Autor autor = autorRepository.getReferenceById(idAutor);
     autor.setAutorActivo(estado);
     autor.setNombreAutor(nombreAutor);
     autorRepository.save(autor);
@@ -35,13 +35,13 @@ public class AutorService {
 
   //BUSCAR (Encontrar uno)
   public Autor encontrarAutor(String idAutor){
-    return autorRepository.findById(idAutor).get();
+    return autorRepository.getReferenceById(idAutor);
   }
 
 
   //BORRAR (DESACTIVAR)
   public void borrarAutor(String idAutor) {
-    Autor autor = autorRepository.findById(idAutor).get();
+    Autor autor = autorRepository.getReferenceById(idAutor);
     autor.setAutorActivo(false);
     autorRepository.save(autor);
   }

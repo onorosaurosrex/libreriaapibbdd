@@ -20,7 +20,7 @@ public class Editorial {
   private byte[] idEditorial;
 
   @Column(name="editorial_activa", columnDefinition = "BIT(1)")
-  private boolean editorialActiva;
+  private boolean editorialActiva = true;
 
   @Column(name = "nombre_editorial", columnDefinition = "VARCHAR(255)", length = 255, nullable = false)
   private String nombreEditorial;
