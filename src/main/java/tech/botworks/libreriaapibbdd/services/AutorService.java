@@ -1,9 +1,9 @@
 package tech.botworks.libreriaapibbdd.services;
 
-import org.apache.el.stream.Optional;
+// import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.Optional;
 import tech.botworks.libreriaapibbdd.entities.Autor;
 import tech.botworks.libreriaapibbdd.repositories.AutorRepository;
 
@@ -30,12 +30,12 @@ public class AutorService {
 
   //BUSCAR (Listar todos)
   public List<Autor> listarAutores() {
-    return autorRepository.findAll();
+    return autorRepository.findAllByAutorActivoIsTrue();
   }
 
   //BUSCAR (Encontrar uno)
-  public Autor encontrarAutor(String idAutor){
-    return autorRepository.getReferenceById(idAutor);
+  public Optional<Autor> buscarAutor(String idAutor){
+    return autorRepository.buscarAutor(idAutor);
   }
 
 
