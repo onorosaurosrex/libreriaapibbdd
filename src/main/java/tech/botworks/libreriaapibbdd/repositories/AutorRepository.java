@@ -14,6 +14,7 @@ import tech.botworks.libreriaapibbdd.entities.Autor;
 public interface AutorRepository extends JpaRepository<Autor, String>{
 
   List<Autor> findAllByAutorActivoIsTrue();
+  List<Autor> findAllByAutorActivoIsFalse();
 
   @Query("SELECT a FROM Autor a WHERE a.idAutor = :idAutor")
   Optional<Autor> buscarAutor(@Param("idAutor") String idAutor);

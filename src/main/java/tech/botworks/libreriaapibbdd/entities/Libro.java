@@ -25,7 +25,7 @@ public class Libro {
   private int ejemplares;
 
   @Column (name="libro_activo", columnDefinition = "BIT(1)")
-  private Boolean libroActivo;
+  private Boolean libroActivo = true;
 
   @Column(columnDefinition = "VARCHAR(255)", length = 255, nullable = false)
   private String titulo;

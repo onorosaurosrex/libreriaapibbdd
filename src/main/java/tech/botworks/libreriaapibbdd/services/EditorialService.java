@@ -1,6 +1,7 @@
 package tech.botworks.libreriaapibbdd.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,11 @@ public class EditorialService {
   public Editorial encontrarEditorial(byte[] idEditorial){
     return editorialRepository.getReferenceById(idEditorial);
   }
+
+  public Optional<Editorial> buscarEditorial (byte[] idEditorial){
+    return editorialRepository.buscarEditorial(idEditorial);
+  }
+  
 
   //BORRAR (DESACTIVAR)
   public void borrarEditorial(byte[] idEditorial) {

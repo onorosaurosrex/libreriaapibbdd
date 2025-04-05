@@ -7,6 +7,7 @@ import java.util.Optional;
 import tech.botworks.libreriaapibbdd.entities.Autor;
 import tech.botworks.libreriaapibbdd.repositories.AutorRepository;
 
+import java.lang.classfile.ClassFile.Option;
 import java.util.List;
 
 @Service
@@ -20,17 +21,31 @@ public class AutorService {
     autor.setNombreAutor(nombreAutor);
     autorRepository.save(autor);
   }
-  //MODIFICAR
-  public void modificarAutor (String idAutor, String nombreAutor, Boolean estado) {
-    Autor autor = autorRepository.getReferenceById(idAutor);
-    autor.setAutorActivo(estado);
-    autor.setNombreAutor(nombreAutor);
-    autorRepository.save(autor);
+  //MODIFICAR --> PATCH
+  public void modificarAutor (String idAutor, String nombreAutor) {
+    Optional<Autor> respuesta = autorRepository.findById(idAutor);
+    if (respuesta.isPresent()) {
+      Autor autor = respuesta.get();
+      autor.setNombreAutor(nombreAutor);
+      autorRepository.save(autor);
+    }
   }
+
 
   //BUSCAR (Listar todos)
   public List<Autor> listarAutores() {
+    return autorRepository.findAll();
+    // return autorRepository.findAllByAutorActivoIsTrue();
+  }
+
+  // BUSCAR (Listar activos)
+  public List<Autor> listarAutoresActivos() {
     return autorRepository.findAllByAutorActivoIsTrue();
+  }
+
+  // BUSCAR (Listar borrados)
+  public List<Autor> listarAutoresBorrados() {
+    return autorRepository.findAllByAutorActivoIsFalse();
   }
 
   //BUSCAR (Encontrar uno)

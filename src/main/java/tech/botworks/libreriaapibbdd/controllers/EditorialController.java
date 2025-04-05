@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping ("/editorial")
+@RequestMapping ("/editoriales")
 public class EditorialController {
 
     private final AutorService autorService;
