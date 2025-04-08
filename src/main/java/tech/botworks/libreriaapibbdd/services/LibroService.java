@@ -2,6 +2,7 @@ package tech.botworks.libreriaapibbdd.services;
 
 import java.util.Optional;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import tech.botworks.libreriaapibbdd.entities.Autor;
 import tech.botworks.libreriaapibbdd.entities.Editorial;
 import tech.botworks.libreriaapibbdd.entities.Libro;
 import tech.botworks.libreriaapibbdd.modelos.LibroCreateDTO;
+import tech.botworks.libreriaapibbdd.modelos.LibroListarActivosDTO;
 import tech.botworks.libreriaapibbdd.repositories.AutorRepository;
 import tech.botworks.libreriaapibbdd.repositories.EditorialRepository;
 import tech.botworks.libreriaapibbdd.repositories.LibroRepository;
@@ -42,16 +44,22 @@ public class LibroService {
       }
 
       libroRepository.save(nuevoLibro);
+      }
 
+      public List<LibroCreateDTO> listarLibros() {
+        List<Libro> libros = libroRepository.findAll();
+        return null;
+      }
 
-      
-      // private Long idLibro;
-      // private int ejemplares;
-      // private Boolean libroActivo;
-      // private String titulo;
-      // private String idAutor;
-      // private String idEditorial;
-                          }
-
-
+        // BUSCAR (Listar activos usando DTO)
+  public List<LibroListarActivosDTO> listarActivos(){
+    return libroRepository.listarActivos();
+  }
+                        
+                          // private Long idLibro;
+                          // private int ejemplares;
+                          // private Boolean libroActivo;
+                          // private String titulo;
+                          // private String idAutor;
+                          // private String idEditorial;
 }

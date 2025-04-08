@@ -17,7 +17,7 @@ public class Editorial {
   @Id
   @Column (name="id_editorial")
   @GeneratedValue (strategy=GenerationType.UUID)
-  private byte[] idEditorial;
+  private String idEditorial;
 
   @Column(name="editorial_activa", columnDefinition = "BIT(1)")
   private boolean editorialActiva = true;

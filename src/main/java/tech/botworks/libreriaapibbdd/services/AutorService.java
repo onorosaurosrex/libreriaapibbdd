@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import tech.botworks.libreriaapibbdd.entities.Autor;
+import tech.botworks.libreriaapibbdd.modelos.LibroListarActivosDTO;
 import tech.botworks.libreriaapibbdd.repositories.AutorRepository;
 
 import java.lang.classfile.ClassFile.Option;
@@ -42,6 +43,8 @@ public class AutorService {
   public List<Autor> listarAutoresActivos() {
     return autorRepository.findAllByAutorActivoIsTrue();
   }
+
+
 
   // BUSCAR (Listar borrados)
   public List<Autor> listarAutoresBorrados() {

@@ -11,10 +11,10 @@ import tech.botworks.libreriaapibbdd.entities.Autor;
 import tech.botworks.libreriaapibbdd.entities.Editorial;
 
 @Repository
-public interface EditorialRepository extends JpaRepository<Editorial,byte[]>  {
+public interface EditorialRepository extends JpaRepository<Editorial,String>  {
  
-    @Query("SELECT a FROM Editorial e WHERE e.idEditorial = :idEditorial")
-  Optional<Editorial> buscarEditorial(@Param("idEditorial") byte[] idEditorial);
+  @Query("SELECT e FROM Editorial e WHERE e.idEditorial = :idEditorial")
+  Optional<Editorial> buscarEditorial(@Param("idEditorial") String idEditorial);
 
   
 }
